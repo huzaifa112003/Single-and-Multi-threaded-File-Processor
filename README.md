@@ -29,11 +29,6 @@ The project contrasts a single-threaded approach with a multi-threaded solution 
 - **Comparative Analysis:** Evaluates and compares execution times between single-threaded and multi-threaded approaches.
 - **Scalability:** Highlights benefits of multi-threading for reducing computation time, especially for large-scale data processing tasks.
 
-## Results and Conclusions
-
-- **Computed Metrics:** Presents computed `total_sum`, `global_min`, and `global_max` values for each dataset.
-- **Performance Metrics:** Analyzes and interprets performance metrics to conclude effectiveness of multi-threading for optimized data processing.
-
 ## Features
 
 - **Single-threaded processing**: Computes the sum, minimum, and maximum values using a single thread.
@@ -42,15 +37,8 @@ The project contrasts a single-threaded approach with a multi-threaded solution 
 - **Command-line arguments**: The program takes input file name and number of threads as command-line arguments.
 - **Dynamic memory allocation**: Allocates memory dynamically based on the dataset size.
 
-## File Structure
-
-- `processor_singlethreaded.c`: Single-threaded implementation.
-- `processor_multithreaded.c`: Multi-threaded implementation.
-- `Makefile`: Contains compile, build, and clean targets for the project.
-- `report.pdf`: Documentation on data structures, algorithms, and performance comparison.
 
 ## Requirements
-
 
 - Ensure a POSIX-compliant operating system that supports pthreads (e.g., Linux, macOS).
 - GCC compiler for C programming (`gcc` and `g++`).
@@ -88,29 +76,4 @@ To clean the build files, run:
 ```sh
 make clean
 ```
-
-## Implementation Details
-
-### Single-threaded Program
-
-1. Reads the dataset from a file into a dynamic array.
-2. Calculates the sum, minimum, and maximum values in the dataset.
-3. Measures and prints the processing time.
-
-### Multi-threaded Program
-
-1. Reads the dataset from a file into a dynamic array.
-2. Creates a specified number of worker threads to process the dataset.
-3. Partitions the data among the threads.
-4. Computes the sum, minimum, and maximum values using thread-safe mechanisms.
-5. Measures and prints the processing time.
-
-### Timing
-
-The timing code for both single-threaded and multi-threaded implementations measures the elapsed time for processing the dataset. It uses `clock` and `clock_gettime` functions to ensure accurate time measurement.
-
-## Error Handling
-
-- Proper error handling for file operations and thread creation.
-- Ensures that memory allocated dynamically is freed after use.
 
