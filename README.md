@@ -24,11 +24,6 @@ The project contrasts a single-threaded approach with a multi-threaded solution 
 - **Thread Management:** Spawns multiple threads to concurrently compute local sums, minima, and maxima across segmented datasets.
 - **Mutex Locks:** Ensures thread safety with mutex locks (`sum_mutex` and `min_max_mutex`) when updating shared global variables (`total_sum`, `global_min`, `global_max`).
 
-### 4. Performance Evaluation
-
-- **Comparative Analysis:** Evaluates and compares execution times between single-threaded and multi-threaded approaches.
-- **Scalability:** Highlights benefits of multi-threading for reducing computation time, especially for large-scale data processing tasks.
-
 ## Features
 
 - **Single-threaded processing**: Computes the sum, minimum, and maximum values using a single thread.
