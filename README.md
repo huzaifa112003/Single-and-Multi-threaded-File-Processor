@@ -1,20 +1,38 @@
 # Single-and-Multi-threaded-File-Processor
-Here is a detailed README file for your GitHub repository based on the provided assignment details.
 
----
-
-# Multi-threaded File Processor
 
 ## Overview
 
-This project is a multi-threaded file processor implemented in C using the POSIX Threads API. The program reads a large dataset from a file, processes it using multiple threads, and computes the sum, minimum, and maximum values in the dataset. The project demonstrates the use of synchronization mechanisms to ensure thread safety and efficient resource utilization.
+The project contrasts a single-threaded approach with a multi-threaded solution to process data from various input files. It evaluates the efficiency of multi-threading in handling computational tasks, particularly beneficial for large datasets and intensive data processing operations.
 
-## Objectives
+## Key Components
 
-- Develop a multi-threaded C program that processes a large dataset concurrently.
-- Use synchronization mechanisms to ensure thread safety.
-- Efficiently manage resources and avoid memory leaks.
-- Implement proper error handling for file operations and thread creation.
+### 1. Data Handling
+
+- **Input Files:** Reads integer data from input files.
+- **Memory Management:** Dynamically allocates memory for data storage.
+- **File Operations:** Manages file I/O operations efficiently using standard C functions.
+
+### 2. Single-Threaded Approach
+
+- **Functionality:** Computes total sum, minimum, and maximum values using a sequential (single-threaded) method.
+- **Performance Evaluation:** Measures execution times for different dataset sizes (`data_tiny`, `data_small`, `data_medium`, `data_large`) to establish baseline performance.
+
+### 3. Multi-Threaded Implementation
+
+- **Concurrency:** Utilizes `pthread` library for multi-threading.
+- **Thread Management:** Spawns multiple threads to concurrently compute local sums, minima, and maxima across segmented datasets.
+- **Mutex Locks:** Ensures thread safety with mutex locks (`sum_mutex` and `min_max_mutex`) when updating shared global variables (`total_sum`, `global_min`, `global_max`).
+
+### 4. Performance Evaluation
+
+- **Comparative Analysis:** Evaluates and compares execution times between single-threaded and multi-threaded approaches.
+- **Scalability:** Highlights benefits of multi-threading for reducing computation time, especially for large-scale data processing tasks.
+
+## Results and Conclusions
+
+- **Computed Metrics:** Presents computed `total_sum`, `global_min`, and `global_max` values for each dataset.
+- **Performance Metrics:** Analyzes and interprets performance metrics to conclude effectiveness of multi-threading for optimized data processing.
 
 ## Features
 
@@ -33,13 +51,13 @@ This project is a multi-threaded file processor implemented in C using the POSIX
 
 ## Requirements
 
-- POSIX Threads API
-- C Compiler (gcc)
 
-## Usage
+- Ensure a POSIX-compliant operating system that supports pthreads (e.g., Linux, macOS).
+- GCC compiler for C programming (`gcc` and `g++`).
 
-### Compilation
+### Running the Project
 
+1. **Compile:** 
 To compile the project, run the following command:
 
 ```sh
@@ -51,13 +69,13 @@ make
 #### Single-threaded Program
 
 ```sh
-./processor_singlethreaded <data_file>
+./file_processor_singlethreaded <data_file>
 ```
 
 #### Multi-threaded Program
 
 ```sh
-./processor_multithreaded <data_file> <num_threads>
+./file_processor_multithreaded <data_file> <num_threads>
 ```
 
 - `<data_file>`: Path to the dataset file (e.g., `data_small.txt`).
